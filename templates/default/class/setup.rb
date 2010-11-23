@@ -6,4 +6,11 @@
 def init
   super
   sections.place(:rubikon).after(T('docstring'))
+  sections.place(:command_summary).after(:attribute_summary)
+end
+
+def commands
+  object.children.select do |o|
+    o.is_a? Rubikon::YARD::CodeObjects::CommandObject
+  end
 end

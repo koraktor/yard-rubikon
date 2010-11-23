@@ -1,0 +1,26 @@
+<% unless commands.empty? %>
+  <h2>
+    Command Summary
+    <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+  </h2>
+
+  <ul class="summary">
+    <% commands.each do |cmd| %>
+      <li class="<%= cmd.has_tag?(:deprecated) ? 'deprecated' : '' %>">
+      <span class="summary_signature">
+        <% title = "&gt;&gt; #{h cmd.name}"
+           link_title = "#{h cmd.name} (#{cmd.type})" %>
+        <%= link_url(url_for(cmd), title, :title => link_title) %>
+      </span>
+      <span class="rubikon-command note title">Command</span>
+      <% if cmd.has_tag?(:deprecated) %><span class="deprecated note title">Deprecated</span><% end %>
+
+      <% if cmd.has_tag?(:deprecated) %>
+        <span class="summary_desc"><strong>Deprecated.</strong> <%= htmlify_line cmd.tag(:deprecated).text %></span>
+      <% else %>
+        <span class="summary_desc"><%= htmlify_line docstring_summary(cmd) %></span>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
