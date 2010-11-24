@@ -8,7 +8,7 @@
     <% commands.each do |cmd| %>
       <li class="<%= cmd.has_tag?(:deprecated) ? 'deprecated' : '' %>">
       <span class="summary_signature">
-        <% title = "&gt;&gt; #{h cmd.name}"
+        <% title = "&gt;&gt; <strong>#{h cmd.name}</strong>"
            link_title = "#{h cmd.name} (#{cmd.type})" %>
         <%= link_url(url_for(cmd), title, :title => link_title) %>
       </span>
