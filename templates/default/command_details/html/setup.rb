@@ -3,8 +3,4 @@
 #
 # Copyright (c) 2010, Sebastian Staudt
 
-include T('default/method_details')
-
-def init
-  sections :header, [:command_signature, T('docstring'), :source]
-end
+include T('default/method_details/html')

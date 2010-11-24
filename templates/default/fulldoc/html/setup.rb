@@ -3,8 +3,7 @@
 #
 # Copyright (c) 2010, Sebastian Staudt
 
-include T('default/method_details')
-
-def init
-  sections :header, [:command_signature, T('docstring'), :source]
+def generate_assets
+  asset('js/rubikon.js', file('js/rubikon.js', true))
+  super
 end
