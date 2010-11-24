@@ -1,0 +1,9 @@
+<% unless commands.empty? %>
+  <div id="command_details" class="command_details">
+    <h2>Command Details</h2>
+
+    <% commands.each_with_index do |cmd, i| %>
+      <%= yieldall :object => cmd, :index => i %>
+    <% end %>
+  </div>
+<% end %>
